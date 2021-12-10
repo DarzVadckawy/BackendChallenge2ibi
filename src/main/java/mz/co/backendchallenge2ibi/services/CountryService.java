@@ -41,14 +41,7 @@ public class CountryService {
 
     public boolean exists(Country country) {
 
-        if (repository.findByid(country.getId()) == null) {
-
-            return false;
-
-        } else {
-
-            return true;
-        }
+        return repository.findByid(country.getId()) != null;
     }
 
     public boolean deleteCountry(Country country) {
@@ -57,14 +50,7 @@ public class CountryService {
 
             repository.delete(country);
 
-            if (exists(country)) {
-
-                return false;
-
-            } else {
-
-                return true;
-            }
+            return !exists(country);
 
         } else {
 

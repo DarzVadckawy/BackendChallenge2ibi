@@ -14,21 +14,27 @@ public interface CountryRepository extends JpaRepository<Country, Long> {
     Country findByid(long id);
 
     List<Country> findAllByOrderByIdAsc();
+
     List<Country> findAllByOrderByIdDesc();
 
     List<Country> findAllByOrderByNameAsc();
+
     List<Country> findAllByOrderByNameDesc();
 
     List<Country> findAllByOrderByCapitalAsc();
+
     List<Country> findAllByOrderByCapitalDesc();
 
     List<Country> findAllByOrderByRegionAsc();
+
     List<Country> findAllByOrderByRegionDesc();
 
     List<Country> findAllByOrderBySubregionAsc();
+
     List<Country> findAllByOrderBySubregionDesc();
 
     List<Country> findAllByOrderByAreaAsc();
+
     List<Country> findAllByOrderByAreaDesc();
 
 }

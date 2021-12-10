@@ -1,18 +1,13 @@
 package mz.co.backendchallenge2ibi.config;
 
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import java.util.ArrayList;
-
-import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableSwagger2
@@ -20,30 +15,15 @@ public class SwaggerConfig {
 
 
     @Bean
-    public Docket countriesAPI() {
+    public OpenAPI springShopOpenAPI() {
+        return new OpenAPI()
+                .info(new Info().title("Countries REST API")
+                        .description("This is an REST API that allows us to do different operations based on countries")
+                        .version("v0.0.1")
+                        .contact(new Contact().name("Dário Silvano Maxaieie").email("dariomaxaieie@gmail.com")
+                                .url("https://www.linkedin.com/in/dariomaxaieie/"))
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("mz.co.backendchallenge2ibi"))
-                .paths(regex("/api/countries.*"))
-                .build()
-                .apiInfo(metaInfo());
-
-
-    }
-
-    private ApiInfo metaInfo() {
-
-        return new ApiInfo(
-                "Countries REST API",
-                "CRUD API REST",
-                "1.0",
-                "Terms of Service",
-                new Contact("Dário Silvano Maxaieie", "https://www.linkedin.com/in/dariomaxaieie/",
-                        "dariomaxaieie@gmail.com"),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<>()
-        );
 
     }
 
