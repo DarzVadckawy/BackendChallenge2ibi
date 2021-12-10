@@ -1,7 +1,6 @@
 package mz.co.backendchallenge2ibi.controllers;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import mz.co.backendchallenge2ibi.models.Country;
 import mz.co.backendchallenge2ibi.services.CountryService;
