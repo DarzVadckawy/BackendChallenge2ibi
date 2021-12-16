@@ -2,6 +2,11 @@ package mz.co.backendchallenge2ibi.controllers;
 
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import mz.co.backendchallenge2ibi.dto.CountryDTO;
 import mz.co.backendchallenge2ibi.models.Country;
 import mz.co.backendchallenge2ibi.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ * @author Dário Silvano Maxaieie
+ * This is the rest controller (Country) of the API with the endpoints of the operations
+ */
 @RestController
 @RequestMapping("/api/countries")
 @Api(value = "Countries REST API")
@@ -55,7 +65,7 @@ public class CountryController {
     @Operation(summary = "Returns all the countries by Name descending order")
     public List<Country> listAllCountriesOrderByNameDesc() {
 
-        return countryService.findAllOrderByNameAsc();
+        return countryService.findAllOrderByNameDesc();
     }
 
     @GetMapping("/list/capital/asc")
@@ -122,14 +132,22 @@ public class CountryController {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Saves a country")
-    public Country save(@RequestBody Country country) {
+    public Country save(@RequestBody CountryDTO countryDTO) {
 
-        return countryService.addCountry(country);
+        return countryService.addCountry(countryDTO.transformToCountry());
     }
 
 
     @GetMapping("/{id}")
     @Operation(summary = "Get a country by the ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Country",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Country.class))}),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Country not found",
+                    content = @Content)})
     public Country getCountry(@PathVariable(value = "id") long id) {
 
         return countryService.getCountry(id);

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * @author Dário Silvano Maxaieie
+ *This is the service class of the API
+ */
+
 @Service
 public class CountryService {
 
@@ -33,6 +38,12 @@ public class CountryService {
     }
 
     public Country getCountry(long id) {
+
+
+        if(repository.findByid(id) == null){
+
+
+        }
 
         return repository.findByid(id);
 
@@ -99,7 +110,7 @@ public class CountryService {
 
     public List<Country> findAllOrderByCapitalDesc() {
 
-        return repository.findAllByOrderByCapitalAsc();
+        return repository.findAllByOrderByCapitalDesc();
 
     }
 
@@ -129,13 +140,13 @@ public class CountryService {
 
     public List<Country> findAllOrderByAreaAsc() {
 
-        return repository.findAllByOrderByIdAsc();
+        return repository.findAllByOrderByAreaAsc();
 
     }
 
     public List<Country> findAllOrderByAreaDesc() {
 
-        return repository.findAllByOrderByIdDesc();
+        return repository.findAllByOrderByAreaDesc();
 
     }
 

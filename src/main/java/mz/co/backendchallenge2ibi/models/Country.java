@@ -12,13 +12,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
-
+/**
+ * @author Dário Silvano Maxaieie
+ * This is the country model
+ */
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Country {
 
@@ -51,6 +51,20 @@ public class Country {
     @NotBlank
     @Size(min = 1, max = 30000)
     private double area;
+
+    public Country(String name, String capital, String region, String subregion, double area) {
+
+        this.name = name;
+        this.capital = capital;
+        this.region = region;
+        this.subregion = subregion;
+        this.area = area;
+
+    }
+
+    public Country() {
+
+    }
 
 
     @Override

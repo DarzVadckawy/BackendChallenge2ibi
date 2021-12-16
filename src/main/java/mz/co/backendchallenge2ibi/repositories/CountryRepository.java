@@ -6,7 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+/**
+ * @author Dário Silvano Maxaieie
+ * This is the repository of the Country
+ */
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
 

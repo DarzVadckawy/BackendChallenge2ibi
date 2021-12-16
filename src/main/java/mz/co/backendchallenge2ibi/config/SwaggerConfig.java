@@ -9,13 +9,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+
+/**
+ * @author Dário Silvano Maxaieie
+ * This is the class responsible for configuring Swagger
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
 
     @Bean
-    public OpenAPI springShopOpenAPI() {
+    public OpenAPI countryAPI() {
         return new OpenAPI()
                 .info(new Info().title("Countries REST API")
                         .description("This is an REST API that allows us to do different operations based on countries")
