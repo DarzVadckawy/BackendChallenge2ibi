@@ -20,6 +20,8 @@ import java.util.Objects;
 @Setter
 @ToString
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Country {
 
 
@@ -52,19 +54,6 @@ public class Country {
     @Size(min = 1, max = 30000)
     private double area;
 
-    public Country(String name, String capital, String region, String subregion, double area) {
-
-        this.name = name;
-        this.capital = capital;
-        this.region = region;
-        this.subregion = subregion;
-        this.area = area;
-
-    }
-
-    public Country() {
-
-    }
 
 
     @Override

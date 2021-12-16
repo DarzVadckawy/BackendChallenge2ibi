@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import mz.co.backendchallenge2ibi.dto.CountryDTO;
+
 import mz.co.backendchallenge2ibi.models.Country;
 import mz.co.backendchallenge2ibi.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,9 +132,9 @@ public class CountryController {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Saves a country")
-    public Country save(@RequestBody CountryDTO countryDTO) {
+    public Country save(@RequestBody Country country) {
 
-        return countryService.addCountry(countryDTO.transformToCountry());
+        return countryService.addCountry(country);
     }
 
 
