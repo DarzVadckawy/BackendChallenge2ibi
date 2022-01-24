@@ -2,7 +2,7 @@
  
  Esta é uma API Rest desenvolvida usando a framework Spring Boot
  
- Ela está documentada pelo Swagger UI e a mesma pode ser acedida pelo seguinte link: https://bit.ly/3q0LXw9
+ Ela está documentada pelo Swagger UI e a mesma pode ser acedida pelo seguinte link: https://countriesapi2ibi.herokuapp.com/swagger-ui.html
  No link acima, encontram-se todos os endpoints da API.
  
  
